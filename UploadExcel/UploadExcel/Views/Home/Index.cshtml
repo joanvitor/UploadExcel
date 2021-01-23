@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem Vindo</h1>
+    <h4>
+        Faça aqui o upload de seu arquivo excel
+    </h4>
+</div>
+<br />
+<form method="post" enctype="multipart/form-data" asp-action="UploadArquivo" asp-controller="Home">
+    <div class="row col-sm-12 col-xs-12">
+        <div class="input-group col-sm-12 col-md-12 col-xs-12">
+            <label class="input-group-text" for="files">Upload</label>
+            <input type="file" class="form-control" name="arquivo" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-Excel">
+        </div>
+    </div>
+    <div class="row col-sm-12 col-xs-12">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <button type="submit" class="btn btn-info">Enviar</button>
+        </div>
+    </div>
+</form>
+
+
+
+
