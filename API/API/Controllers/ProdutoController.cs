@@ -1,7 +1,7 @@
 ﻿using API.Models;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc
+using System.Collections.Generic
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,51 +14,66 @@ namespace API.Controllers
     public class ProdutoController : ControllerBase
     {
         public readonly CapgeminiContexto _contexto;
+        private readonly Metodos.Metodos _metodos;
 
-        public ProdutoController(CapgeminiContexto contexto) => _contexto = contexto;
+        public ProdutoController(CapgeminiContexto contexto)
+        {
+            _contexto = contexto;
+            _metodos = new Metodos.Metodos();
+        }
 
         // GET: api/<ProdutoController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Produto> Get()
         {
-            ICollection<Produto> produtos = 
+            ICollection<Produto> produtos =
                 _contexto
                 .Produtos
-                .Select(p => new Produto
-                {
-                    Id = p.Id,
-                    Nome = p.Nome,
-                    DataEntrega = p.DataEntrega,
-                    Quantidade = p.Quantidade,
-                    ValorUnidade = p.ValorUnidade
-                }).ToList();
-
+                .ToList();
             return produtos;
-            //return new string[] { "value1", "value2" };
+        }
+
+        [HttpPost("Upload")]
+        public async Task<List<Produto>> Upload(List<IFormFile> files)
+        {
+            var form = Request.Form;
+
+            foreach (var formFile in form.Files)
+            {
+                (var produtos, var lotevalido, var mensagemlote) = await _metodos.LerArquivoExcel(formFile);
+                if (lotevalido)
+                {
+                    produtos.ForEach(p => _contexto.Produtos.AddAsync(p));
+                    await _contexto.SaveChangesAsync();
+                }
+                else
+                {
+                    BadRequest();
+                }
+            }
+            var listaprodutos = _contexto.Produtos.ToList();
+            return listaprodutos;
         }
 
         // GET api/<ProdutoController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Produto Get(int id)
         {
-            return "value";
+            var produto = _contexto
+                .Produtos
+                .SingleOrDefault(p => p.Id == id);
+            return produto;
         }
 
         // POST api/<ProdutoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string value) // insert
         {
         }
 
         // PUT api/<ProdutoController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProdutoController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Put(int id, [FromBody] string value) // alteração
         {
         }
     }

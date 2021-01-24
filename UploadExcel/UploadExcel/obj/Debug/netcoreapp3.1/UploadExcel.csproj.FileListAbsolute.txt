@@ -53,3 +53,5 @@ D:\Projetos\CapGemini\UploadExcel\UploadExcel\bin\Debug\netcoreapp3.1\ClosedXML.
 D:\Projetos\CapGemini\UploadExcel\UploadExcel\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
 D:\Projetos\CapGemini\UploadExcel\UploadExcel\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll
 D:\Projetos\CapGemini\UploadExcel\UploadExcel\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+D:\Projetos\CapGemini\UploadExcel\UploadExcel\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Projetos\CapGemini\UploadExcel\UploadExcel\obj\Debug\netcoreapp3.1\Razor\Views\Home\visualizardados.cshtml.g.cs

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 using System;
 using System.Collections;
@@ -10,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using UploadExcel.Models;
 
@@ -29,51 +31,51 @@ namespace UploadExcel.Controllers
             return View();
         }
 
+        public async Task<IActionResult> VisualizarDados()
+        {
+            HttpClient httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri("https://localhost:5001/api/");
+            HttpResponseMessage resposta = await httpClient.GetAsync("produto");
+            var dados = resposta.Content.ReadAsStringAsync().Result;
+            var produtos = JsonConvert.DeserializeObject<List<Produto>>(dados);
+            return View(produtos);
+        }
+
         [HttpPost("UploadArquivo")]
         public async Task<IActionResult> UploadArquivo(IFormCollection form)
         {
-            var arquivos = form.Files;
-            List<Produto> produtos = new List<Produto>();
-            foreach(var item in arquivos)
+            try
             {
-                if (item == null || item.Length == 0)
+                foreach (var item in form.Files)
                 {
-                    return RedirectToAction("");
-                }
-                using (var memoryStream = new MemoryStream())
-                {
-                    await item.CopyToAsync(memoryStream).ConfigureAwait(false);
-                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-                    using (var package = new ExcelPackage(memoryStream))
+                    if (item != null)
                     {
-                        ExcelWorksheet workSheet = package.Workbook.Worksheets[0];
-                        var totalRows = package.Workbook.Worksheets[0].Dimension?.Rows;
-                        var totalCollumns = package.Workbook.Worksheets[0].Dimension?.Columns;
-                        for (int j = 2; j <= totalRows.Value; j++) // começa abaixo do titulo
+                        using (var client = new HttpClient())
                         {
-                            Produto prod = new Produto();
-                            for (int k = 1; k <= totalCollumns.Value; k++)
+                            try
                             {
-                                switch (k)
-                                {
-                                    case 1:
-                                        prod.DataEntrega = package.Workbook.Worksheets[0].Cells[j, k].Value.ToString();
-                                        break;
-                                    case 2:
-                                        prod.Nome = package.Workbook.Worksheets[0].Cells[j, k].Value.ToString();
-                                        break;
-                                    case 3:
-                                        prod.Quantidade = int.Parse(package.Workbook.Worksheets[0].Cells[j, k].Value.ToString());
-                                        break;
-                                    case 4:
-                                        prod.ValorUnidade = double.Parse(package.Workbook.Worksheets[0].Cells[j, k].Value.ToString());
-                                        break;
-                                }
+                                client.BaseAddress = new Uri("https://localhost:5001/api/produto/upload");
+                                byte[] data;
+                                using (var br = new BinaryReader(item.OpenReadStream()))
+                                    data = br.ReadBytes((int)item.OpenReadStream().Length);
+                                ByteArrayContent bytes = new ByteArrayContent(data);
+                                MultipartFormDataContent multicontent = new MultipartFormDataContent();
+                                multicontent.Add(bytes, "file", item.FileName);
+                                var result = client.PostAsync(client.BaseAddress, multicontent).Result;
+                                return StatusCode((int)result.StatusCode); //201 Created the request has been fulfilled, resulting in the creation of a new resource.
                             }
-                            produtos.Add(prod);
+                            catch (Exception)
+                            {
+                                return StatusCode(500); // 500 is generic server error
+                            }
                         }
                     }
+                    return StatusCode(400); // 400 is bad request
                 }
+            }
+            catch (Exception)
+            {
+                return StatusCode(500); // 500 is generic server error
             }
             return View(nameof(Index));
         }

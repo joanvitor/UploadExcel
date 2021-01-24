@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wVxO17W3wqzWU1VIuE8/0bD/ac9QBzeuslSWs+hBAVuzdgPkET8YaIpXQXAMQ0rENWaXzD7sMmV/O+RZPITXMg==",
+  "dgSpecHash": "xqlxSkDhIg0ac0b5quuwhNJPISIPZJfqlEZxRFY7Tc+fvsDZtH9/VFKY3Vgt8OWI44LweIxkT5K+XSirkE++kA==",
   "success": true,
   "projectFilePath": "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\Joan Vitor\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
