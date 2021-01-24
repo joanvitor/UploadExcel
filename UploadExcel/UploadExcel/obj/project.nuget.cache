@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xqlxSkDhIg0ac0b5quuwhNJPISIPZJfqlEZxRFY7Tc+fvsDZtH9/VFKY3Vgt8OWI44LweIxkT5K+XSirkE++kA==",
+  "dgSpecHash": "zKWzX2wok6QE2pB8N89G58Ilaj/z11nCneoXjBwXEWQgfYiJC7eDCF8SA4Hdrn+GJKtLtgO5mMEiDbpRm4vMEA==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
+  "projectFilePath": "D:\\Projetos\\GitHub\\UploadExcel\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\closedxml\\0.95.4\\closedxml.0.95.4.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\documentformat.openxml\\2.7.2\\documentformat.openxml.2.7.2.nupkg.sha512",

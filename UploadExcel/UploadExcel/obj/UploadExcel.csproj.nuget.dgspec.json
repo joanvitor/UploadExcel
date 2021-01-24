@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\UploadExcel.csproj": {}
+    "D:\\Projetos\\GitHub\\UploadExcel\\UploadExcel\\UploadExcel\\UploadExcel.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\UploadExcel.csproj": {
+    "D:\\Projetos\\GitHub\\UploadExcel\\UploadExcel\\UploadExcel\\UploadExcel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
+        "projectUniqueName": "D:\\Projetos\\GitHub\\UploadExcel\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
         "projectName": "UploadExcel",
-        "projectPath": "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
+        "projectPath": "D:\\Projetos\\GitHub\\UploadExcel\\UploadExcel\\UploadExcel\\UploadExcel.csproj",
         "packagesPath": "C:\\Users\\Joan Vitor\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\CapGemini\\UploadExcel\\UploadExcel\\obj\\",
+        "outputPath": "D:\\Projetos\\GitHub\\UploadExcel\\UploadExcel\\UploadExcel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Joan Vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",

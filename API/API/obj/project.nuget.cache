@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oU5Q2haQhaJD15i3bdzF2+jTbpb+bKy/rwWSf+pyKWMS6qWkkrEOlHCjPEk0ZqRaeg+MzINmagH+b5rMR8zxRw==",
+  "dgSpecHash": "NL9RXiWMeXYmt8E7lIZDa5dxIIlukaHQ1iLvqvheCyy8ncWXKDG1Hw6TJj8JlFEOmuVo6UfQ9/ImfwuA0fi3uQ==",
   "success": true,
-  "projectFilePath": "D:\\Projetos\\CapGemini\\API\\API\\API.csproj",
+  "projectFilePath": "D:\\Projetos\\GitHub\\UploadExcel\\API\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\Joan Vitor\\.nuget\\packages\\epplus\\5.5.2\\epplus.5.5.2.nupkg.sha512",

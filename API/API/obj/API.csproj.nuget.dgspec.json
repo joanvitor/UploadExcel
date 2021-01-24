@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\CapGemini\\API\\API\\API.csproj": {}
+    "D:\\Projetos\\GitHub\\UploadExcel\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\CapGemini\\API\\API\\API.csproj": {
+    "D:\\Projetos\\GitHub\\UploadExcel\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\CapGemini\\API\\API\\API.csproj",
+        "projectUniqueName": "D:\\Projetos\\GitHub\\UploadExcel\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Projetos\\CapGemini\\API\\API\\API.csproj",
+        "projectPath": "D:\\Projetos\\GitHub\\UploadExcel\\API\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Joan Vitor\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\CapGemini\\API\\API\\obj\\",
+        "outputPath": "D:\\Projetos\\GitHub\\UploadExcel\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Joan Vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",

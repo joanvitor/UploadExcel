@@ -62,7 +62,7 @@ namespace UploadExcel.Controllers
                                 MultipartFormDataContent multicontent = new MultipartFormDataContent();
                                 multicontent.Add(bytes, "file", item.FileName);
                                 var result = client.PostAsync(client.BaseAddress, multicontent).Result;
-                                return StatusCode((int)result.StatusCode); //201 Created the request has been fulfilled, resulting in the creation of a new resource.
+                                return View(nameof(Index));
                             }
                             catch (Exception)
                             {
