@@ -9,6 +9,18 @@
     </h4>
 </div>
 <br />
+@if (ViewData["success"] != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Sucesso!!!</strong> @ViewData["success"]
+    </div>
+}
+@if (ViewData["erro"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Erro!!!</strong> @ViewData["erro"]
+    </div>
+}
 <form method="post" enctype="multipart/form-data" asp-action="UploadArquivo" asp-controller="Home">
     <div class="row col-sm-12 col-xs-12">
         <div class="input-group col-sm-12 col-md-12 col-xs-12">

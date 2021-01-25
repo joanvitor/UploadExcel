@@ -1,5 +1,27 @@
 ﻿@model IEnumerable<Produto>
 
+<div>
+    <form asp-action="GetId" asp-controller="Home">
+        <input type="text" name="valor" />
+        <button type="submit"> Pesquisar </button>
+    </form>
+    @if (ViewData["data_consulta"] != null)
+    {
+        <label> Data e hora da consulta: @ViewData["data_consulta"]</label>
+        <br />
+    }
+    @if (ViewData["totalitens"] != null)
+    {
+        <label> Total de Itens: @ViewData["totalitens"]</label>
+    }
+</div>
+@if (ViewData["FalhaConsulta"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @ViewData["FalhaConsulta"]
+    </div>
+}
+
 <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
     <thead>
         <tr>
@@ -8,17 +30,20 @@
             <th> Data Entrega </th>
             <th> Quantidade </th>
             <th> Valor </th>
+            <th> Valor Total </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td> @item.Id </td>
-            <td> @item.Nome </td>
-            <td> @item.DataEntrega </td>
-            <td> @item.Quantidade </td>
-            <td> R$ @item.ValorUnidade </td>
-        </tr>}
+            <tr>
+                <td> @item.Id </td>
+                <td> @item.Nome </td>
+                <td> @item.DataEntrega </td>
+                <td> @item.Quantidade </td>
+                <td> R$ @item.ValorUnidade </td>
+                <td> R$ @Math.Round(item.ValorTotal,2) </td>
+            </tr>
+}
     </tbody>
 </table>

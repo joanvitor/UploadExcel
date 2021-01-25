@@ -10,7 +10,7 @@ namespace API.Metodos
 {
     public class Metodos
     {
-        public async Task<(List<Produto>, bool, string)> LerArquivoExcel(IFormFile arquivo)
+        public async Task<(List<Produto>, bool, string)> LerArquivoExcel(IFormFile arquivo, int? maiorId)
         {
             bool lotevalido = true;
             string mensagemLote = null;
@@ -29,7 +29,7 @@ namespace API.Metodos
                         for (int j = 2; j <= totalRows.Value; j++) // começa abaixo do titulo
                         {
                             Produto prod = new Produto();
-                            prod.Id = j;
+                            prod.Id = ++maiorId;
                             for (int k = 1; k <= totalCollumns.Value; k++)
                             {
                                 switch (k)

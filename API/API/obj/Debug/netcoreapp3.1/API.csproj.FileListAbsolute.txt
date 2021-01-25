@@ -125,3 +125,4 @@ D:\Projetos\GitHub\UploadExcel\API\API\obj\Debug\netcoreapp3.1\API.csproj.CopyCo
 D:\Projetos\GitHub\UploadExcel\API\API\obj\Debug\netcoreapp3.1\API.dll
 D:\Projetos\GitHub\UploadExcel\API\API\obj\Debug\netcoreapp3.1\API.pdb
 D:\Projetos\GitHub\UploadExcel\API\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+D:\Projetos\GitHub\UploadExcel\API\API\obj\Debug\netcoreapp3.1\API.csprojAssemblyReference.cache

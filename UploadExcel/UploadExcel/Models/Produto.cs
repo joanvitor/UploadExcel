@@ -7,5 +7,6 @@
         public string DataEntrega { get; set; }
         public int Quantidade { get; set; }
         public double ValorUnidade { get; set; }
+        public double ValorTotal { get; set; }
     }
 }

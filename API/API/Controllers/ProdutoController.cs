@@ -34,25 +34,32 @@ namespace API.Controllers
         }
 
         [HttpPost("Upload")]
-        public async Task<List<Produto>> Upload(List<IFormFile> files)
+        public async Task<IActionResult> Upload(List<IFormFile> files)
         {
+            var listaprodutos = _contexto.Produtos.ToList();
+            int? maiorId = 0;
+            foreach(var item in listaprodutos)
+                if (item.Id >= maiorId)
+                    maiorId = item.Id;
+
             var form = Request.Form;
 
-            foreach (var formFile in form.Files)
+            List<Produto> produtos = new List<Produto>(); ;
+            bool lotevalido = true;
+            string mensagemlote;
+
+            foreach (var formFile in form.Files) (produtos, lotevalido, mensagemlote) = await _metodos.LerArquivoExcel(formFile, maiorId);
+
+            if (lotevalido)
             {
-                (var produtos, var lotevalido, var mensagemlote) = await _metodos.LerArquivoExcel(formFile);
-                if (lotevalido)
-                {
-                    produtos.ForEach(p => _contexto.Produtos.AddAsync(p));
-                    await _contexto.SaveChangesAsync();
-                }
-                else
-                {
-                    BadRequest();
-                }
+                produtos.ForEach(p => _contexto.Produtos.AddAsync(p));
+                await _contexto.SaveChangesAsync();
             }
-            var listaprodutos = _contexto.Produtos.ToList();
-            return listaprodutos;
+            else
+            {
+                BadRequest();
+            }
+            return RedirectToAction(nameof(Get));
         }
 
         // GET api/<ProdutoController>/5
